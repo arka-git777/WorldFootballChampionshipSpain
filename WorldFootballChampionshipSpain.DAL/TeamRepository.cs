@@ -1,5 +1,4 @@
-﻿using WorldFootballChampionshipSpain;
-using WorldFootballChampionshipSpain.DAL.Enteties;
+﻿using WorldFootballChampionshipSpain.DAL.Enteties;
 
 namespace WorldFootballChampionshipSpain.DAL
 {
@@ -45,6 +44,10 @@ namespace WorldFootballChampionshipSpain.DAL
         public IEnumerable<Team> GetAll()
         {
             return _context.Teams.ToList();
+        }
+        public IEnumerable<Team> GetAllByCity(string city)
+        {
+            return _context.Teams.Where(x => x.City.ToUpper() == city.ToUpper());
         }
     }
 }
